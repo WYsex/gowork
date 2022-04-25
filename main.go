@@ -1,13 +1,10 @@
 package main
 
-import (
-	"fmt"
-	"github.com/google/uuid" //新增依赖
-	"github.com/sirupsen/logrus"
-)
+import "net/http"
 
 func main() {
-	fmt.Println("hello word")
-	logrus.Println("hellow ads")
-	logrus.Println(uuid.NewString())
+	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
+		writer.Write([]byte("hello world"))
+	})
+	http.ListenAndServe(":8080", nil)
 }
