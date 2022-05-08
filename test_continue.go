@@ -5,7 +5,7 @@ func test3() {
 		for j := 0; j <= 10; j++ {
 		to:
 			if i == 1 && j == 1 {
-				break to
+				continue to
 			}
 		}
 
